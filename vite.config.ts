@@ -11,9 +11,16 @@ if (process.env.TEMPO === "true") {
 }
 
 export default defineConfig({
-  base: "./", // ✅ Use './' for relative paths
+  base: "", // ✅ Set base to empty string for relative paths
   build: {
-    outDir: "dist", // ✅ Ensure files are output to 'dist'
+    outDir: "dist",
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name]-[hash][extname]",
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
+      },
+    },
   },
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
