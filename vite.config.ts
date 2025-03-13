@@ -10,9 +10,8 @@ if (process.env.TEMPO === "true") {
   conditionalPlugins.push(["tempo-devtools/swc", {}]);
 }
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "development" ? "/" : "./", // ✅ Use relative base for production
+  base: process.env.NODE_ENV === "development" ? "/" : "", // ✅ Use '' for relative paths
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
