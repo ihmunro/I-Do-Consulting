@@ -11,7 +11,10 @@ if (process.env.TEMPO === "true") {
 }
 
 export default defineConfig({
-  base: process.env.NODE_ENV === "development" ? "/" : "", // ✅ Use '' for relative paths
+  base: "./", // ✅ Use './' for relative paths
+  build: {
+    outDir: "dist", // ✅ Ensure files are output to 'dist'
+  },
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
